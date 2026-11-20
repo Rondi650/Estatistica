@@ -41,16 +41,13 @@ $$Y = f(X) + \epsilon$$
 
 ### 1.4 Notação por Observação (Treino vs. Teste)
 
-```text
-       LINHA DE TREINO (Dados Históricos)       │        LINHA DE TESTE / NOVO DADO (Produção)
-                                                 │
-    x_i  = Ficha inteira da pessoa i (linha)     │     x_0  = Ficha inteira de uma pessoa nova (X_test)
-    y_i  = Gabarito real da pessoa i             │     y_0  = Gabarito real da pessoa nova (y_test)
- f_hat(x_i) = Previsão do modelo para a pessoa i │  f_hat(x_0) = Previsão do modelo para a pessoa nova
-```
+| Situação | O que representa | O que o modelo sabe |
+| :--- | :--- | :--- |
+| **Treino: $(x_i, y_i)$** | $x_i$ são as características de uma pessoa histórica; $y_i$ é o resultado conhecido dela. | O modelo usa os dois para aprender. $\hat{f}(x_i)$ é a previsão para essa observação. |
+| **Teste: $(x_0, y_0)$** | $x_0$ são as características de uma observação separada para avaliação; $y_0$ é seu resultado real. | O modelo recebe $x_0$, mas não usa $y_0$ para aprender. Comparamos $\hat{f}(x_0)$ com $y_0$ para medir o desempenho em dados não usados no treino. |
+| **Produção: $x_{\text{novo}}$** | Características de uma pessoa para quem queremos fazer uma previsão. | O modelo calcula $\hat{f}(x_{\text{novo}})$. O resultado real $y_{\text{novo}}$ geralmente ainda é desconhecido e só poderá ser comparado depois, se vier a ser observado. |
 
-* **$\hat{f}(x_i) \approx y_i$**: Objetivo do treino — fazer a previsão para cada colaborador histórico chegar o mais perto possível do valor real dele.
-* **$\hat{f}(x_0) \approx y_0$**: Objetivo de generalização — fazer o modelo prever com precisão para uma observação nova ($x_0$) que **não estava** na base de treino.
+**Em resumo:** no treino, o modelo aprende com exemplos que têm características e resultados conhecidos. No teste, avaliamos previsões em exemplos separados. Em produção, usamos o modelo para prever casos novos.
 
 ---
 
