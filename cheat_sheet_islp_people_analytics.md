@@ -190,6 +190,15 @@ As métricas abaixo são usadas principalmente para respostas quantitativas.
 
 ### 4.2 Test MSE vs. Training MSE
 
+**O que são dados de treino e dados de teste?**
+
+Antes de treinar um modelo, separamos os dados disponíveis em dois grupos:
+
+- **Dados de treino:** exemplos que o modelo usa para aprender padrões e ajustar seus parâmetros. É como estudar com exercícios e respostas.
+- **Dados de teste:** exemplos separados, que o modelo não usa durante o treino. Servem para avaliar como ele se sai diante de casos novos, como uma prova.
+
+Por exemplo, podemos treinar com dados históricos de alguns colaboradores e testar o modelo com outros colaboradores que ficaram de fora do treino. Para que a avaliação seja justa, o modelo não deve aprender com as respostas dos dados de teste antes de ser avaliado.
+
 * **Training MSE**:
   $$\text{Training MSE} = \text{Ave}_{i \in \text{treino}} (y_i - \hat{f}(x_i))^2$$
 * **Test MSE**:
